@@ -1,0 +1,3 @@
+/home/mks/Tehnopark/Algorithms_course/HW/Module_1/Task3_3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mks/Tehnopark/Algorithms_course/HW/Module_1/Task3_3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mks/Tehnopark/Algorithms_course/HW/Module_1/Task3_3/cmake-build-debug/CMakeFiles/Task3_3.dir
