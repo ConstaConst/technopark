@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/hw_advC_n1.dir/main.c.o  -o hw_advC_n1 

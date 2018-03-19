@@ -1,0 +1,3 @@
+/home/mks/Tehnopark/C_CPP_course/hw_advC_n1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mks/Tehnopark/C_CPP_course/hw_advC_n1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mks/Tehnopark/C_CPP_course/hw_advC_n1/cmake-build-debug/CMakeFiles/hw_advC_n1.dir

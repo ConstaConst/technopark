@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mks/Tehnopark/C_CPP_course/hw_advC_n1/main.c
+stdio.h
+-
+stdlib.h
+-
+memory.h
+-
+stdbool.h
+-
+
