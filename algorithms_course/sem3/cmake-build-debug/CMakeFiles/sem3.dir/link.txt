@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/sem3.dir/main.cpp.o  -o sem3 

@@ -1,3 +1,0 @@
-/home/mks/CLionProjects/Algorithm_course/Sem_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mks/CLionProjects/Algorithm_course/Sem_1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mks/CLionProjects/Algorithm_course/Sem_1/cmake-build-debug/CMakeFiles/Sem_1.dir

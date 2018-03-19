@@ -1,3 +1,0 @@
-/home/mks/Tehnopark/Algorithms_course/Sem_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mks/Tehnopark/Algorithms_course/Sem_2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mks/Tehnopark/Algorithms_course/Sem_2/cmake-build-debug/CMakeFiles/Sem_2.dir
