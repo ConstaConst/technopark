@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mks/technopark/algorithms_course/hw/module_1/task5_2/main.cpp
+algorithm
+-
+iostream
+-
+cassert
+-
+cstring
+-
+
