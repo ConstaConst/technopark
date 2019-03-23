@@ -24,37 +24,12 @@ template <class T>
 class DynamicArray {
 public:
     DynamicArray(): buffer(nullptr), capacity(0), size(0) {}
-    DynamicArray(const DynamicArray<T>& other) {
-        size = other.size;
-        capacity = other.capacity;
-        buffer = new T[size];
-        std::memcpy(buffer, other.buffer, sizeof(T) * size);
-    }
     ~DynamicArray() { delete[] buffer; }
 
-    DynamicArray<T>& operator=(const DynamicArray<T>& other) {
-        if (this == &other)
-            return *this;
-
-        size = other.size;
-        capacity = other.capacity;
-        delete[] buffer;
-        buffer = new T[size];
-        std::memcpy(buffer, other.buffer, sizeof(T) * size);
-
-        return *this;
-    }
-    void pushBack(const T& value) {
-        if (size == capacity) {
-            grow();
-        }
-        buffer[size++] = value;
-    }
-    T& popBack() {
-        assert(!isEmpty());
-        return buffer[--size];
-    }
-    bool isEmpty() {
+    DynamicArray<T>& operator=(const DynamicArray<T>& other);
+    void pushBack(const T& value);
+    T& popBack();
+    bool isEmpty() const {
         return size == 0;
     }
 
@@ -66,93 +41,98 @@ private:
     const size_t DEFAULT_SIZE = 8;//Начальный размер буфера.
     const size_t MULT = 2;//Множитель увеличения размера.
     //Функция, увеличивающая размер буфера.
-    void grow() {
-        if (capacity != 0) {
-            capacity *= MULT;
-        } else {
-            capacity = DEFAULT_SIZE;
-        }
-
-        auto newBuffer = new T[capacity];
-        std::memmove(newBuffer, buffer, sizeof(T) * size);
-        delete[] buffer;
-        buffer = newBuffer;
-    }
+    void grow();
 };
+
+template<class T>
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other) {
+    if (this == &other)
+        return *this;
+
+    size = other.size;
+    capacity = other.capacity;
+    delete[] buffer;
+    buffer = new T[size];
+    std::memcpy(buffer, other.buffer, sizeof(T) * size);
+
+    return *this;
+}
+
+template<class T>
+void DynamicArray<T>::pushBack(const T& value) {
+    if (size == capacity) {
+        grow();
+    }
+    buffer[size++] = value;
+}
+
+template<class T>
+T &DynamicArray<T>::popBack() {
+    assert(!isEmpty());
+    return buffer[--size];
+}
+
+template<class T>
+void DynamicArray<T>::grow() {
+    if (capacity != 0) {
+        capacity *= MULT;
+    } else {
+        capacity = DEFAULT_SIZE;
+    }
+
+    auto newBuffer = new T[capacity];
+    std::memmove(newBuffer, buffer, sizeof(T) * size);
+    delete[] buffer;
+    buffer = newBuffer;
+}
+
 //В Container должны быть реализованы функции: pushBack(), pushBack(), конструктор копирования, оператор присваивания:
 template <class T,
         class Container = DynamicArray<T>>
 class Stack {
 public:
-    Stack(): container(new Container) {}
-    Stack(const Stack<T, Container>& other): container(new Container(*other.container)) {}
-    ~Stack() { delete container; }
-
-    Stack<T, Container>& operator=(const Stack<T, Container>& other) {
-        if (this == &other)
-            return *this;
-
-        delete container;
-        container = new Container(*other.container);
-
-        return *this;
-    }
     void push(const T& value) {
-        container->pushBack(value);
+        container.pushBack(value);
     }
     T& pop() {
-        return container->popBack();
+        return container.popBack();
     }
-    bool isEmpty() {
-        return container->isEmpty();
+    bool isEmpty() const {
+        return container.isEmpty();
     }
 
 private:
-    Container* container;
+    Container container;
 };
+
 //Шаблон очереди, реализованной на 2х стеках.
 template <class T>
 class Queue {
 public:
-    Queue(): inBuffer(new Stack<T>), outBuffer(new Stack<T>) {}
-    Queue(const Queue<T>& other): inBuffer(new Stack<T>(*other.inBuffer)), outBuffer(new Stack<T>(*other.outBuffer)) {}
-    ~Queue() {
-        delete inBuffer;
-        delete outBuffer;
-    }
-
-    Queue<T>& operator=(const Queue<T>& other) {
-        if (this == &other)
-            return *this;
-
-        delete inBuffer;
-        delete outBuffer;
-        inBuffer = new Stack<T>(*other.inBuffer);
-        outBuffer = new Stack<T>(*other.inBuffer);
-
-        return *this;
-    }
     void push(const T& value) {
-        inBuffer->push(value);
+        inBuffer.push(value);
     }
-    T& pop() {
-        assert(!isEmpty());
-        //Если outBuffer пуст, заполням его значениями из inBuffer.
-        if (outBuffer->isEmpty()) {
-            while (!inBuffer->isEmpty()) {
-                outBuffer->push(inBuffer->pop());
-            }
-        }
-        return outBuffer->pop();
-    }
-    bool isEmpty() {
-        return inBuffer->isEmpty() && outBuffer->isEmpty();
+    T& pop();
+    bool isEmpty() const {
+        return inBuffer.isEmpty() && outBuffer.isEmpty();
     }
 
 private:
-    Stack<T>* inBuffer;//Для push().
-    Stack<T>* outBuffer;//Для pop().
+    Stack<T> inBuffer;//Для push().
+    Stack<T> outBuffer;//Для pop().
 };
+
+template<class T>
+T& Queue<T>::pop() {
+    assert(!isEmpty());
+    //Если outBuffer пуст, заполням его значениями из inBuffer.
+    if (outBuffer.isEmpty()) {
+        while (!inBuffer.isEmpty()) {
+            outBuffer.push(inBuffer.pop());
+        }
+    }
+    return outBuffer.pop();
+}
 
 //Возвращает true, если все команды отработали правильно, иначе - false.
 bool checkQueueWorking(Queue<int>& queue, int n);

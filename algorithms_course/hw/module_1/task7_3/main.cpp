@@ -29,7 +29,7 @@ int main() {
 
     binaryQuickSort<unsigned long long>(array, (array + n), LL_MAX_BIT);
     for (int i = 0; i < n; ++i) {
-        std::cout << array[i] << " ";
+        std::cout << array[i] << "\n";
     }
 
     delete[] array;

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mks/Tehnopark/Algorithms_course/HW/Module_1/Task3_3/main.cpp" "/home/mks/Tehnopark/Algorithms_course/HW/Module_1/Task3_3/cmake-build-debug/CMakeFiles/Task3_3.dir/main.cpp.o"
+  "/home/mks/technopark/algorithms_course/hw/module_1/task3_3/main.cpp" "/home/mks/technopark/algorithms_course/hw/module_1/task3_3/cmake-build-debug/CMakeFiles/Task3_3.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

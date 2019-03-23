@@ -1,0 +1,73 @@
+std::string getSolution2(const std::array<char, FieldSize>& field) {
+    std::unordered_map<GameState, char, StateHash> visited;
+    GameState startState(field);
+
+    std::priority_queue<GameState> queue;
+    queue.emplace(startState);
+    visited[startState] = 'S';
+
+    GameState finishState(FinishField);
+    while (!(queue.top() == finishState)) {
+        GameState currentState = queue.top();
+        queue.pop();
+
+        if(currentState.canMoveLeft()) {
+            GameState leftState = currentState.moveLeft();
+            if( visited.find(leftState) == visited.end() ) {
+                queue.emplace(leftState);
+                visited[leftState] = 'L';
+            }
+        }
+        if(currentState.canMoveRight()) {
+            GameState rightState = currentState.moveRight();
+            if( visited.find(rightState) == visited.end() ) {
+                queue.emplace(rightState);
+                visited[rightState] = 'R';
+            }
+        }
+        if(currentState.canMoveUp()) {
+            GameState upState = currentState.moveUp();
+            if( visited.find(upState) == visited.end() ) {
+                queue.emplace(upState);
+                visited[upState] = 'U';
+            }
+        }
+        if(currentState.canMoveDown()) {
+            GameState downState = currentState.moveDown();
+            if( visited.find(downState) == visited.end() ) {
+                queue.emplace(downState);
+                visited[downState] = 'D';
+            }
+        }
+    }
+
+    std::string result;
+    //std::cout << state << "\n";
+    while( visited[finishState] != 'S' ) {
+        switch( visited[finishState] ) {
+            case 'L':
+                finishState = finishState.moveRight();
+                result.push_back('L');
+                break;
+            case 'R':
+                finishState = finishState.moveLeft();
+                result.push_back('R');
+                break;
+            case 'U':
+                finishState = finishState.moveDown();
+                result.push_back('U');
+                break;
+            case 'D':
+                finishState = finishState.moveUp();
+                result.push_back('D');
+                break;
+            default:
+                break;
+                //assert( false );
+        }
+        //std::cout << state << "\n";
+    }
+
+    std::reverse(result.begin(), result.end());
+    return result;
+}

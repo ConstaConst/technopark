@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mks/Tehnopark/Algorithms_course/HW/Task4_4/main.cpp" "/home/mks/Tehnopark/Algorithms_course/HW/Task4_4/cmake-build-debug/CMakeFiles/Task4_4.dir/main.cpp.o"
+  "/home/mks/technopark/algorithms_course/hw/module_1/task4_4/main.cpp" "/home/mks/technopark/algorithms_course/hw/module_1/task4_4/cmake-build-debug/CMakeFiles/Task4_4.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

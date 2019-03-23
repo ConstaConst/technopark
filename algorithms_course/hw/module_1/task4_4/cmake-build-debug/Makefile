@@ -48,10 +48,10 @@ RM = /opt/jetBrains/clion-2017.3.4/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mks/Tehnopark/Algorithms_course/HW/Task4_4
+CMAKE_SOURCE_DIR = /home/mks/technopark/algorithms_course/hw/module_1/task4_4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mks/Tehnopark/Algorithms_course/HW/Task4_4/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mks/technopark/algorithms_course/hw/module_1/task4_4/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mks/Tehnopark/Algorithms_course/HW/Task4_4/cmake-build-debug/CMakeFiles /home/mks/Tehnopark/Algorithms_course/HW/Task4_4/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mks/technopark/algorithms_course/hw/module_1/task4_4/cmake-build-debug/CMakeFiles /home/mks/technopark/algorithms_course/hw/module_1/task4_4/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mks/Tehnopark/Algorithms_course/HW/Task4_4/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mks/technopark/algorithms_course/hw/module_1/task4_4/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
